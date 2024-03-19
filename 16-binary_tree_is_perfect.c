@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_height - this is the function 
+ * binary_tree_height - this is the function
  * @tree: this is a vraiable
  * Return: the height
  */
