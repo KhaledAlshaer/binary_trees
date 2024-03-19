@@ -18,3 +18,23 @@ int subtree_height(const binary_tree_t *tree)
 
 	return (left > right ? left : right);
 }
+
+/**
+ * binary_tree_balance - this is the function
+ * @tree: this is a vraiable
+ * Return: returns 0
+ */
+
+int binary_tree_balance(const binary_tree_t *tree)
+{
+	int l;
+	int r;
+
+	if (tree == NULL)
+		return (0);
+
+	l = subtree_height(tree->left);
+	r = subtree_height(tree->right);
+
+	return (l - r);
+}
