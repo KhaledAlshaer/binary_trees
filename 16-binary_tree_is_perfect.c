@@ -44,20 +44,21 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int h, nodes, power, i;
+	int height_left, height_right;
 
 	if (tree == NULL)
 		return (0);
 
-	h = (int)binary_tree_height(tree);
-	nodes = (int)binary_tree_nodes(tree);
-	power = 1;
+	height_left = (int)binary_tree_height(tree->left);
+	height_right = (int)binary_tree_height(tree->right);
 
-	for (i = 0; i < h; i++)
-		power *= 2;
+	if (height_left == height_right)
+	{
+		if (tree->left == NULL && tree->right == NULL)
+			return (1);
+		else if (tree->left != NULL && tree->right != NULL)
+			return (binary_tree_is_perfect(tree->left) && binary_tree_is_perfect(tree->right));
+	}
 
-	if ((power - 1) == nodes)
-		return (1);
-	else
-		return (0);
+	return (0);
 }
